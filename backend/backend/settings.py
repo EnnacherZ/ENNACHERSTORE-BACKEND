@@ -14,6 +14,7 @@ from pathlib import Path
 from datetime import timedelta
 from dotenv import load_dotenv
 import os
+import dj_database_url
 
 load_dotenv()
 
@@ -28,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-i&&0hmq(66&51ai$ctg=+)vmt3b)9o(gl6tm%24a6svl!eq5c%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -109,6 +110,8 @@ DATABASES = {
         'PORT': os.getenv("DB_PORT"),  
     }
 }
+
+DATABASES['default'] = dj_database_url.parse(os.getenv("DB_URL"))
 
 
 # Password validation
