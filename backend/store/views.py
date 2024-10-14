@@ -31,7 +31,7 @@ def get_newest_shoes(request):
     try:
         newest_shoes = Shoe.objects.filter(newest=True)
         serializer = ShoeSerializer(newest_shoes, many=True)
-        return Response({'list_newest_shoes': serializer.data}, status=status.HTTP_200_OK)
+        return JsonResponse({'list_newest_shoes': serializer.data}, status=status.HTTP_200_OK)
     except Exception as e:
         return JsonResponse({"message": f"An error occurred: {str(e)}"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
     
