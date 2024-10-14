@@ -11,3 +11,4 @@ python-dotenv
 pillow
 psycopg2
 gunicorn
+dj_database_url
